@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SingleViewAppSwiftTemplate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoutTime" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -35,15 +35,18 @@
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextRoundAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HXg-cR-JBK"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U37-Qg-dvS">
-                                <rect key="frame" x="166" y="532" width="43" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U37-Qg-dvS">
+                                <rect key="frame" x="136" y="515" width="103" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake device to end round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbN-Op-bpd">
-                                <rect key="frame" x="66" y="569" width="243" height="23"/>
+                                <rect key="frame" x="66" y="557" width="243" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -167,25 +170,25 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5rS-0q-5Hh" secondAttribute="trailing" constant="20" id="BqU-B2-6b5"/>
                             <constraint firstItem="Jix-o8-Yzg" firstAttribute="leading" secondItem="kfZ-1Q-gI4" secondAttribute="trailing" id="Br8-pu-fVJ"/>
                             <constraint firstItem="Ntg-vd-8UP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Hgo-f2-ssB"/>
+                            <constraint firstItem="TbN-Op-bpd" firstAttribute="top" secondItem="U37-Qg-dvS" secondAttribute="bottom" constant="10" id="IKy-2R-sPx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QWE-ih-eer" secondAttribute="trailing" constant="20" id="JCS-g9-wIN"/>
                             <constraint firstItem="FpK-lJ-aNd" firstAttribute="leading" secondItem="ZMd-IW-wC2" secondAttribute="trailing" id="LZ2-u2-q9x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="U37-Qg-dvS" secondAttribute="trailing" constant="150" id="PVA-Nd-jBx"/>
                             <constraint firstItem="8vB-Vk-oLB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="70" id="SkV-Qd-vZE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jix-o8-Yzg" secondAttribute="trailing" constant="20" id="TLo-1P-aBl"/>
                             <constraint firstItem="pBo-7G-Wr7" firstAttribute="leading" secondItem="Ntg-vd-8UP" secondAttribute="trailing" id="VOU-LR-1NU"/>
                             <constraint firstItem="kfZ-1Q-gI4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Yqo-Lw-Ci3"/>
-                            <constraint firstItem="8vB-Vk-oLB" firstAttribute="top" secondItem="TbN-Op-bpd" secondAttribute="bottom" constant="5" id="Z8v-Zc-hoz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="pBo-7G-Wr7" secondAttribute="trailing" constant="20" id="a28-Vi-SlB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8vB-Vk-oLB" secondAttribute="bottom" constant="30" id="cbU-DH-Fbp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U37-Qg-dvS" secondAttribute="trailing" constant="120" id="efw-6P-CGU"/>
                             <constraint firstItem="nRP-fH-nED" firstAttribute="top" secondItem="FpK-lJ-aNd" secondAttribute="bottom" id="fdz-Hb-lHD"/>
                             <constraint firstItem="kfZ-1Q-gI4" firstAttribute="top" secondItem="Ntg-vd-8UP" secondAttribute="bottom" constant="9" id="gjk-vK-koZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TbN-Op-bpd" secondAttribute="trailing" constant="50" id="gng-jF-fY1"/>
                             <constraint firstItem="5rS-0q-5Hh" firstAttribute="leading" secondItem="SeT-Ac-boN" secondAttribute="trailing" id="hy9-PM-86O"/>
                             <constraint firstItem="pBo-7G-Wr7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="l32-im-2Q2"/>
-                            <constraint firstItem="TbN-Op-bpd" firstAttribute="top" secondItem="U37-Qg-dvS" secondAttribute="bottom" constant="5" id="oCy-Xq-fsO"/>
+                            <constraint firstItem="U37-Qg-dvS" firstAttribute="top" secondItem="SeT-Ac-boN" secondAttribute="bottom" constant="18" id="mZG-5y-EFd"/>
+                            <constraint firstItem="U37-Qg-dvS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="120" id="pI2-wL-lhl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FpK-lJ-aNd" secondAttribute="trailing" constant="20" id="rQp-Wh-6tl"/>
                             <constraint firstItem="ZMd-IW-wC2" firstAttribute="top" secondItem="kfZ-1Q-gI4" secondAttribute="bottom" constant="9" id="tfX-iP-Pfv"/>
-                            <constraint firstItem="U37-Qg-dvS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="150" id="uzR-LU-Acy"/>
                             <constraint firstItem="QWE-ih-eer" firstAttribute="top" secondItem="Jix-o8-Yzg" secondAttribute="bottom" id="wbB-z9-0S2"/>
                             <constraint firstItem="pBo-7G-Wr7" firstAttribute="leading" secondItem="Ntg-vd-8UP" secondAttribute="trailing" id="x2U-0l-dUs"/>
                             <constraint firstItem="5rS-0q-5Hh" firstAttribute="top" secondItem="ZMd-IW-wC2" secondAttribute="bottom" constant="9" id="xZW-mu-V7O"/>
@@ -202,6 +205,8 @@
                         <outlet property="middleBottomUp" destination="FpK-lJ-aNd" id="1z4-IC-04g"/>
                         <outlet property="middleTopDown" destination="QWE-ih-eer" id="Tyt-Xn-84N"/>
                         <outlet property="middleTopUp" destination="Jix-o8-Yzg" id="UXk-ot-7hD"/>
+                        <outlet property="nextRoundButton" destination="8vB-Vk-oLB" id="wpx-Tf-8ex"/>
+                        <outlet property="timer" destination="U37-Qg-dvS" id="jdx-V5-yhi"/>
                         <outlet property="topDown" destination="pBo-7G-Wr7" id="b1U-Sj-LXL"/>
                         <outlet property="topEventLabel" destination="Ntg-vd-8UP" id="Yo0-Wz-70g"/>
                     </connections>

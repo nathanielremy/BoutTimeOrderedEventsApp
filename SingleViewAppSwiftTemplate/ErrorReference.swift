@@ -9,7 +9,10 @@
 import Foundation
 
 
-
+enum GameError: Error {
+    case undefinedEvents
+    case invalidEventType
+}
 
 
 

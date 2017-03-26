@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SingleViewAppSwiftTemplate.xcodeproj">
+      location = "self:/Users/Remy/Desktop/SingleViewAppSwiftTemplate/BoutTime.xcodeproj">
    </FileRef>
 </Workspace>
