@@ -12,7 +12,7 @@ import GameKit
 protocol EventGame {
     var events: [[String: Any]]? { get }
     
-    func displayEvents(label1: UILabel, label2: UILabel, label3: UILabel, label4: UILabel, nextRound: UIButton) throws
+    func displayEvents(label1: UILabel, label2: UILabel, label3: UILabel, label4: UILabel) throws
 }
 
 
@@ -21,9 +21,8 @@ struct HistoryEvents: EventGame {
     
     let events: [[String: Any]]?
     
-    func displayEvents(label1: UILabel, label2: UILabel, label3: UILabel, label4: UILabel, nextRound: UIButton) throws {
+    func displayEvents(label1: UILabel, label2: UILabel, label3: UILabel, label4: UILabel) throws {
         
-        nextRound.isHidden = true
         
         if let events = events {
             

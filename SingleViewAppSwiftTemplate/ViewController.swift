@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var eventLabel2: UILabel!
     @IBOutlet weak var eventLabel3: UILabel!
     @IBOutlet weak var eventlabel4: UILabel!
-    @IBOutlet weak var timer: UILabel!
     @IBOutlet weak var nextRoundButton: UIButton!
-    
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var shakeLabel: UILabel!
+    @IBOutlet weak var yourScore: UILabel!
+    @IBOutlet weak var scoreCount: UILabel!
     
 
 ////    Button Outlets
@@ -29,12 +31,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var middleBottomUp: UIButton!
     @IBOutlet weak var middleBottomDown: UIButton!
     @IBOutlet weak var bottomUp: UIButton!
+    @IBOutlet weak var playAgain: UIButton!
     
     let totalRounds = 6
-    var currentRound: Int = 1
+    var currentRound = 0
     var correctAnswers = 0
     var correctSound = AVAudioPlayer()
     var incorrectSound = AVAudioPlayer()
+    var time = 60
+    var timer = Timer()
     
 
     override func viewDidLoad() {
@@ -61,7 +66,6 @@ class ViewController: UIViewController {
     func checkEventOrder() {
         
         
-        
         if topEventLabel.tag > eventLabel2.tag && eventLabel2.tag > eventLabel3.tag && eventLabel3.tag > eventlabel4.tag {
             correctAnswers += 1
             
@@ -74,26 +78,58 @@ class ViewController: UIViewController {
                 incorrectSound.play()
             }
         }
-        
+        shakeLabel.isHidden = true
+        timerLabel.isHidden = true
         nextRoundButton.isHidden = false
     }
     
     
     @IBAction func nextRoundAction(_ sender: UIButton) {
+        
+        if currentRound == totalRounds {
+            
+            finalScore()
+        } else {
+        
+            displayEvent()
+        }
+        
+    }
+    
+    
+    
+//    Evaluate users final score 
+    func finalScore() {
+        
+        scoreCount.text = "\(correctAnswers)/\(totalRounds)"
+        
+        currentRound = 0
+        correctAnswers = 0
+        
+        scoreCount.isHidden = false
+        yourScore.isHidden = false
+        playAgain.isHidden = false
+        
+        topEventLabel.isHidden = true
+        eventLabel2.isHidden = true
+        eventLabel3.isHidden = true
+        eventlabel4.isHidden = true
+        topDown.isHidden = true
+        middleTopUp.isHidden = true
+        middleTopDown.isHidden = true
+        middleBottomUp.isHidden = true
+        middleBottomDown.isHidden = true
+        nextRoundButton.isHidden = true
+        bottomUp.isHidden = true
+        shakeLabel.isHidden = true
+        timerLabel.isHidden = true
+    }
+    
+    
+    @IBAction func restartGame() {
         displayEvent()
     }
     
-    
-
-    func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if motion == .motionShake {
-            checkEventOrder()
-        }
-    }
-    
-    
-    
-    
 
     
     
@@ -101,16 +137,7 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
 //    labels to switch events and years
 @IBAction func switchEvent(_ sender: UIButton) {
@@ -203,8 +230,32 @@ class ViewController: UIViewController {
     
     }
     
+   
     
     func displayEvent() {
+        
+        
+        topEventLabel.isHidden = false
+        eventLabel2.isHidden = false
+        eventLabel3.isHidden = false
+        eventlabel4.isHidden = false
+        topDown.isHidden = false
+        middleTopUp.isHidden = false
+        middleTopDown.isHidden = false
+        middleBottomUp.isHidden = false
+        middleBottomDown.isHidden = false
+        nextRoundButton.isHidden = false
+        bottomUp.isHidden = false
+        timerLabel.isHidden = false
+        shakeLabel.isHidden = false
+        
+        scoreCount.isHidden = true
+        playAgain.isHidden = true
+        nextRoundButton.isHidden = true
+        yourScore.isHidden = true
+        
+        time = 60
+        startTimer()
         
         topDown.setImage(#imageLiteral(resourceName: "down_full"), for: UIControlState.normal)
         middleTopUp.setImage(#imageLiteral(resourceName: "up_half"), for: UIControlState.normal)
@@ -216,11 +267,12 @@ class ViewController: UIViewController {
         currentRound += 1
         
         do {
-            try historicalEvents.displayEvents(label1: topEventLabel, label2: eventLabel2, label3: eventLabel3, label4: eventlabel4, nextRound: nextRoundButton)
+            try historicalEvents.displayEvents(label1: topEventLabel, label2: eventLabel2, label3: eventLabel3, label4: eventlabel4)
+        } catch GameError.undefinedEvents {
         } catch {
             fatalError("\(error)")
         }
-    }
+    } 
     
     func prepareSound() {
         do {
@@ -240,13 +292,30 @@ class ViewController: UIViewController {
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEventSubtype.motionShake {
             checkEventOrder()
+            timer.invalidate()
         }
     }
     
     
-
-
     
+    func startTimer() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
+        
+    }
+    
+    func counter() {
+        time -= 1
+        timerLabel.text = "0:\(time)"
+        
+        if time < 10 {
+            timerLabel.text = "0:0\(time)"
+        }
+        if time == 0 {
+            timer.invalidate()
+            checkEventOrder()
+        }
+    }
 }
 
 
