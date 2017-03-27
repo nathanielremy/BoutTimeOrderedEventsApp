@@ -40,6 +40,8 @@ struct HistoryEvents: EventGame {
             }
 
             
+//            Giving each label an Event with it's appropriate year
+            
             if let firstLabelEvent = events[index1]["Event"] as? String, let secondLabelEvent = events[index2]["Event"] as? String, let thirdLabelEvent = events[index3]["Event"] as? String, let fourthLabelEvent = events[index4]["Event"] as? String  {
                 
                 if let firstLabelTag = events[index1]["Year"] as? Int, let secondLabelTag = events[index2]["Year"] as? Int, let thirdLabelTag = events[index3]["Year"] as? Int, let fourthLabelTag = events[index4]["Year"] as? Int {

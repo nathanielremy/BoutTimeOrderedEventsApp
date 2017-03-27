@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreCount: UILabel!
     
 
-////    Button Outlets
+//    Button Outlets
     @IBOutlet weak var topDown: UIButton!
     @IBOutlet weak var middleTopUp: UIButton!
     @IBOutlet weak var middleTopDown: UIButton!
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
     
     
     
+//    Checking to see if events are in order
     func checkEventOrder() {
         
         
@@ -84,6 +85,7 @@ class ViewController: UIViewController {
     }
     
     
+//    Create a new round when nextRoundButton is tapped
     @IBAction func nextRoundAction(_ sender: UIButton) {
         
         if currentRound == totalRounds {
@@ -231,7 +233,7 @@ class ViewController: UIViewController {
     }
     
    
-    
+//    Display 4 new events for each new round
     func displayEvent() {
         
         
@@ -298,6 +300,8 @@ class ViewController: UIViewController {
     
     
     
+    
+//    Adding a 60 second count down timer
     func startTimer() {
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.counter), userInfo: nil, repeats: true)
